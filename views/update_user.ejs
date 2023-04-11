@@ -1,0 +1,45 @@
+<%- include('include/_header')%>
+
+    <main id="site-main">
+      <div class="container">
+        <div class="box-nav d-flex justify-between">
+          <a href="/" class="border-shadow"><span class="text-gradient"> Usuários<i class="fa-solid fa-user"></i></span
+          ></a>
+        </div>
+
+        <form id="update_user" method="post">
+            <div class="new_user">
+              <div class="form-group">
+                  <label for="name" class="text-light">Nome</label>
+                  <input type="hidden" name="id" value="<%= user._id %>">
+                  <input type="text" name="name" id="name" value="<%= user.name %>" placeholder="Nome...">
+              </div>
+        
+              <div class="form-group">
+                  <label for="email" class="text-light">Nome</label>
+                  <input type="text" id="email" name="email" value="<%= user.email %>" placeholder="Nome...">
+              </div>
+        
+              <div class="form-group">
+                  <label for="genero" class="text-light">Gênero</label>
+                  <div class="radio inline">
+                      <input type="radio" id="genero-1" name="gender" value="masculino" <%= user.gender == 'masculino' ? 'checked' :"" %> >
+                      <label for="genero-1" class="radio-label">Masculino</label>
+                  </div>
+        
+                  <div class="radio inline">
+                      <input type="radio" id="genero-2" name="gender" value="feminino" <%= user.gender =='feminino'?'checked' : "" %> >
+                      <label for="genero-2" class="radio-label">Feminino</label>
+                  </div>
+              </div>
+        
+              <div class="form-group">
+                  <button type="submit" class="btn text-dark update">Salvar</button>
+              </div>
+            </div>
+          </form>
+
+      </div>
+    </main>
+
+<%- include('include/_footer')%>
